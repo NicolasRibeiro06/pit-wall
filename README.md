@@ -2,7 +2,8 @@
   <h1>🏎️ Pit Wall</h1>
   <p>Um projeto web focado em automobilismo e Fórmula 1, desenvolvido para centralizar informações, estatísticas e acompanhamento de corridas com uma interface moderna e responsiva.</p>
   
-![Uploading Ver Formula 1 GIF by Oracle Red Bull Racing.gif…]()
+<img width="480" height="270" alt="Ver Formula 1 GIF by Oracle Red Bull Racing" src="https://github.com/user-attachments/assets/6328ef93-df15-4ee9-967f-5c2012774769" />
+
 
 </div>
 
