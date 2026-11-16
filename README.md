@@ -1,7 +1,9 @@
 <div align="center">
   <h1>🏎️ Pit Wall</h1>
   <p>Um projeto web focado em automobilismo e Fórmula 1, desenvolvido para centralizar informações, estatísticas e acompanhamento de corridas com uma interface moderna e responsiva.</p>
-  ![f1-car](https://github.com/user-attachments/assets/...)
+  
+<img width="480" height="270" alt="image" src="https://github.com/user-attachments/assets/4a63ff33-3cdf-4010-adab-d43b5d1c52bb" />
+
  
 </div>
 
