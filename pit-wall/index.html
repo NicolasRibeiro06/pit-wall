@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+
+
+<head>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Dongle&family=Redaction+35:ital,wght@0,400;0,700;1,400&family=Tilt+Warp&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PITwall</title>
+    <style>
+        body {
+            font-family: 'Titillium Web', sans-serif;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+    <section class="topbar">
+        <p class="logo">PITwall</p>
+        <a href="" class="logo span">Piloto</a> <a href="" class="logo span">Classificação</a> <a href=""
+            class="logo span">Ingressos</a> 
+        <a href="" class="logo span">Comprar ingressos</a>
+    </section>
+    <section class="hero">
+        <p>O autódromo de interlagos · Novembro de 2026</p>
+      
+           <div class="hero-content">
+            <h1>GP de São Paulo</h1>
+            <p>71 provas, 22 carros no grid e a torcida brasileira empurrando Bortoleto na reta</p>
+            <a href="" class="hero-buttons">Garantir Meu Lugar</a> <a href="" class="hero-buttons">Ver Classificação</a>
+           </div> 
+        
+  
+        <div class="hero-pontos"><p><strong>71 </strong>voltas</p>
+        <p><strong>4309 </strong>km por volta</p>
+        <p><strong>15 </strong>curvas</p></div>
+        
+    </section>
+    <div class="linha-zebrada"></div>
+    <h2>Grid de Pilotos</h2>
+    <p>16</p>
+    <h3>Charles Leclerc</h3>
+    <p>Ferrari <br>
+        81</p>
+    <h3>Oscar Piastri</h3>
+    <p>McLaren <br>
+        81</p>
+    <h3>George Russel </h3>
+    <p>Mercedes <br>
+        5</p>
+    <h3>Gabriel Bortoleto </h3>
+    <p>Audi <br>
+        02</p>
+
+
+
+
+    <h1>Classificação</h1>
+
+
+
+
+    <div>
+        <label for="buscar">Buscar piloto</label>
+        <input type="text" id="buscar" placeholder="Nome ou equipe...">
+    </div>
+
+
+
+
+    <div>
+        <select id="equipe">
+            <option value="equipe"> Todas as equipes</option>
+            <optgroup label="Equipes">
+                <option value="Mclaren">McLaren</option>
+                <option value="ferrari">Ferrari</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+        </select>
+        <button>Filtrar</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Pos.</th>
+                <th>Piloto</th>
+                <th>Equipe</th>
+                <th>Vitórias</th>
+                <th>Difereça</th>
+                <th>Pontos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>1</td>
+            <td>Oscar Piastri</td>
+            <td>McLaren</td>
+            <td>6</td>
+            <td><strong>LÍDER</strong></td>
+            <td>366</td>
+            <tr>
+                <td>2</td>
+                <td>Charles Leclerc</td>
+                <td>Ferrari</td>
+                <td>5</td>
+                <td>-18</td>
+                <td>348</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>George Russell</td>
+                <td>Mercedes</td>
+                <td>4</td>
+                <td>-41</td>
+                <td>325</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Gabriel Bortoleto</td>
+                <td>Audi</td>
+                <td>0</td>
+                <td>-298</td>
+                <td>68</td>
+            </tr>
+        </tbody>
+
+
+
+
+    </table>
+    <!-- 3. SEÇÃO DE INGRESSOS -->
+    <section>
+        <h2>Ingressos</h2>
+        <p>Escolha o setor e venha ver a decisão do título de perto.</p>
+        <p>Últimos <strong>120 lugares</strong> no Setor da Reta!</p>
+
+
+
+
+        <ul>
+            <li>Arquibancada A <strong>R$ 480</strong></li>
+            <li>Setor da Reta <strong>R$ 890</strong></li>
+            <li>Box VIP <strong>R$ 2.400</strong></li>
+        </ul>
+
+
+
+
+        <!-- FORMULÁRIO DE COMPRA DE INGRESSOS -->
+        <form>
+            <div>
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" placeholder="Como está no documento">
+            </div>
+
+
+
+
+            <div>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="voce@email.com">
+            </div>
+
+
+
+
+            <div>
+                <label for="setor">Setor</label>
+                <select id="setor">
+                    <option value="">Escolha o setor</option>
+                    <option value="arquibancada-a">Arquibancada A</option>
+                    <option value="setor-reta">Setor da Reta</option>
+                    <option value="box-vip">Box VIP</option>
+                </select>
+            </div>
+
+
+
+
+            <div>
+                <label for="dia">Dia</label>
+                <input type="date" id="dia">
+            </div>
+
+
+
+
+            <div>
+                <label for="ingressos">Ingressos</label>
+                <input type="number" id="ingressos" value="2" min="1" max="6">
+                <small>Até 6 por pessoa.</small>
+            </div>
+
+
+
+
+            <div>
+                <label for="perfil">Seu perfil (opcional)</label>
+                <input type="url" id="perfil" placeholder="https://instagram.com/...">
+            </div>
+
+
+
+
+            <div>
+                <label for="foto">Foto da torcida para o telão</label>
+                <input type="file" id="foto" accept="image/png, image/jpeg">
+                <small>JPG ou PNG · a melhor foto aparece no telão da reta</small>
+            </div>
+
+
+
+
+            <div>
+                <label for="recado">Recado para o seu piloto</label>
+                <textarea id="recado" rows="3" placeholder="Vai, Bortoleto! Interlagos é sua"></textarea>
+            </div>
+
+
+
+
+            <button type="submit">Reservar ingressos</button>
+        </form>
+    </section>
+</body>
+
+
+
+
+<footer>
+    <p>PIT<span>WALL</span> - Projeto produzido por Nicolas Ribeiro Souza - 1ID DS</p>
+</footer>
+
+
+
+
+</html>

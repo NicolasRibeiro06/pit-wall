@@ -1,0 +1,369 @@
+/* =====================================================
+   PITwall - CSS feito para o HTML ORIGINAL (sem alterações)
+   ===================================================== */
+
+
+:root {
+    --bg: #0a0a0d;
+    --painel: #15151a;
+    --painel-2: #1c1c22;
+    --borda: #2a2a31;
+    --texto: #f2f2f2;
+    --muted: #8b8b95;
+    --red: #e10600;
+    --ferrari: #dc0028;
+    --mclaren: #ff8000;
+    --mercedes: #27f4d2;
+    --audi: #c9c9c9;
+    --titulo: 'Tilt Warp', 'Titillium Web', sans-serif;
+}
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+
+/* ===== O body vira um grid: é ele que monta as colunas da página ===== */
+body {
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.5;
+    counter-reset: secao;
+    display: grid;
+    grid-template-columns:
+        [full-start] minmax(26px, 2fr)
+        [c1] minmax(0, 216px)
+        [c2] minmax(0, 216px)
+        [c3] minmax(0, 216px)
+        [c4] minmax(0, 216px)
+        [c5] minmax(26px, 1fr) [full-end];
+    column-gap: 10px;
+    align-content: start;
+}
+
+
+/* ===== Topbar ===== */
+.topbar {
+    grid-row: 1; grid-column: full-start / full-end;
+    display: grid;
+    grid-template-columns: 1fr auto auto auto 1fr;
+    column-gap: 32px;
+    align-items: center;
+    height: 76px;
+    padding: 0 40px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--borda);
+    position: sticky; top: 0; z-index: 10;
+}
+/* "PIT" branco e "WALL" vermelho sem precisar de <span> */
+p.logo {
+    justify-self: start;
+    width: max-content;
+    font: 18px var(--titulo);
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #fff 0 27%, var(--red) 37% 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.topbar a { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #cfcfd6; }
+.topbar a:hover { color: var(--red); }
+.topbar a:last-child {
+    justify-self: end;
+    background: var(--red); color: #fff;
+    padding: 12px 28px; font-weight: 700; letter-spacing: .5px;
+}
+.topbar a:last-child:hover { background: #ff1a0d; color: #fff; }
+
+
+/* ===== Hero ===== */
+.hero {
+    grid-row: 2; grid-column: full-start / full-end;
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 48px 40px;
+}
+/* foto com corte diagonal */
+.hero::before {
+    content: "";
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 58%;
+    background:
+        linear-gradient(90deg, rgba(10,10,13,.6), transparent 40%),
+        url('img/piloto.jpg') center / cover no-repeat,
+        linear-gradient(135deg, #2b2f36, #4a3a2a 55%, #1a1a1f);
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 1;
+}
+/* faixa vermelha na diagonal */
+.hero::after {
+    content: "";
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 58%;
+    background: var(--red);
+    clip-path: polygon(14% 0, 14.8% 0, 0.8% 100%, 0 100%);
+    z-index: 2;
+}
+.hero > p {
+    position: relative; z-index: 3;
+    font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 14px;
+}
+.hero-content { position: relative; z-index: 3; width: 50%; }
+
+
+/* "GP DE" branco e "SÃO PAULO" vermelho (o texto original fica invisível, o CSS desenha) */
+.hero h1 { --fs: clamp(44px, 6vw, 68px); font-size: 0; line-height: 0; text-transform: uppercase; }
+.hero h1::before { content: "GP de"; display: block; font: var(--fs)/1 var(--titulo); color: #fff; }
+.hero h1::after  { content: "São Paulo"; display: block; font: var(--fs)/1 var(--titulo); color: var(--red); }
+
+
+.hero-content p { margin: 18px 0 20px; font-size: 13px; color: #d0d0d6; max-width: 300px; }
+.hero-buttons {
+    display: inline-block;
+    padding: 12px 22px;
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+    border: 2px solid transparent;
+    transition: .2s;
+}
+.hero-buttons:first-of-type { background: var(--red); color: #fff; }
+.hero-buttons:first-of-type:hover { background: #ff1a0d; }
+.hero-buttons:last-of-type { border-color: #fff; color: #fff; margin-left: 6px; }
+.hero-buttons:last-of-type:hover { background: #fff; color: #000; }
+
+
+.hero-pontos {
+    position: absolute; right: 40px; bottom: 18px; z-index: 3;
+    display: flex; gap: 20px; text-align: center;
+}
+.hero-pontos p { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); line-height: 1.3; }
+.hero-pontos strong { display: block; font: 22px/1 var(--titulo); color: #fff; letter-spacing: 0; }
+
+
+/* ===== Linha zebrada ===== */
+.linha-zebrada {
+    grid-row: 3; grid-column: full-start / full-end;
+    height: 10px;
+    background: repeating-linear-gradient(90deg, var(--red) 0 20px, #fff 20px 40px);
+}
+
+
+/* ===== Títulos de seção (com numeração 01, 02, 03 feita pelo CSS) ===== */
+body > h2, body > h1, section h2 {
+    font: 22px/1 var(--titulo);
+    text-transform: uppercase;
+    display: flex; align-items: baseline; gap: 8px;
+    margin-bottom: 22px;
+}
+body > h2::before, body > h1::before, section h2::before {
+    counter-increment: secao;
+    content: counter(secao, decimal-leading-zero);
+    font: 700 9px 'Titillium Web', sans-serif;
+    color: var(--red); letter-spacing: 1px;
+}
+
+
+/* ===== Grid de pilotos ===== */
+body > h2 { grid-row: 4; grid-column: c1 / c5; margin-top: 56px; }
+
+
+body > h2 + p { display: none; }   /* o "16" solto: o número de cada card vem do CSS */
+
+
+body > h3 {
+    grid-row: 5;
+    background: var(--painel);
+    border-top: 3px solid var(--cor);
+    padding: 14px 14px 0;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+}
+body > h3::before {                /* número grande do piloto */
+    display: block;
+    font: 44px/1 var(--titulo);
+    color: var(--cor); opacity: .55;
+    margin-bottom: 14px;
+}
+body > h3 + p {                    /* equipe (a 2ª linha, com números soltos, fica escondida) */
+    grid-row: 6;
+    background: var(--painel);
+    padding: 2px 14px 0;
+    height: calc(1.5em + 18px);
+    font-size: 10px; color: var(--muted);
+    overflow: hidden;
+}
+
+
+body > :nth-child(6),  body > :nth-child(7)  { grid-column: c1 / c2; --cor: var(--ferrari); }
+body > :nth-child(8),  body > :nth-child(9)  { grid-column: c2 / c3; --cor: var(--mclaren); }
+body > :nth-child(10), body > :nth-child(11) { grid-column: c3 / c4; --cor: var(--mercedes); }
+body > :nth-child(12), body > :nth-child(13) { grid-column: c4 / c5; --cor: var(--audi); }
+body > :nth-child(6)::before  { content: "16"; }
+body > :nth-child(8)::before  { content: "81"; }
+body > :nth-child(10)::before { content: "63"; }
+body > :nth-child(12)::before { content: "5"; }
+
+
+/* ===== Classificação: filtros ===== */
+body > h1 { grid-row: 7; grid-column: c1 / c5; margin-top: 56px; }
+
+
+body > div:not(.linha-zebrada) { grid-row: 8; align-self: end; margin-bottom: 18px; }
+body > div:nth-of-type(2) { grid-column: c1 / c3; }   /* 1º div de filtro (o 1º div do body é a linha zebrada) */
+body > div:nth-of-type(3) {
+    grid-column: c3 / c5;
+    display: grid; grid-template-columns: 1fr auto; column-gap: 12px; align-items: end;
+}
+body > div:nth-of-type(3) label { grid-column: 1 / -1; }
+
+
+label {
+    display: block;
+    font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+input, select, textarea {
+    width: 100%;
+    background: var(--bg); color: var(--texto);
+    border: 1px solid var(--borda); border-radius: 0;
+    padding: 10px 12px;
+    font: 400 12px 'Titillium Web', sans-serif;
+}
+input::placeholder, textarea::placeholder { color: #55555e; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--red); }
+input[type="date"] { color-scheme: dark; }
+input[type="file"] { background: var(--painel-2); padding: 8px; }
+textarea { resize: vertical; min-height: 70px; }
+small { display: block; margin-top: 4px; font-size: 9px; color: var(--muted); }
+
+
+button {
+    padding: 10px 22px;
+    font: 700 12px 'Titillium Web', sans-serif;
+    text-transform: uppercase; letter-spacing: .5px;
+    background: transparent; color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer; transition: .2s;
+}
+button:hover { background: #fff; color: #000; }
+
+
+/* ===== Tabela ===== */
+table {
+    grid-row: 9; grid-column: c1 / c5;
+    width: 100%; border-collapse: collapse;
+    background: var(--painel); font-size: 12px;
+}
+th {
+    text-align: left; padding: 12px 14px;
+    font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted); background: var(--bg);
+    border-bottom: 1px solid var(--borda);
+}
+td { padding: 14px; border-bottom: 1px solid var(--borda); }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:not(:first-child):hover { background: var(--painel-2); }
+tbody tr:first-child { background: #2a0c0e; }
+
+
+/* quadradinho da posição */
+td:first-child {
+    width: 56px; padding: 0 0 0 20px;
+    background: linear-gradient(#fff, #fff) 14px center / 18px 18px no-repeat;
+    color: #000; font-size: 10px; font-weight: 900;
+}
+tbody tr:first-child td:first-child { background-image: linear-gradient(var(--red), var(--red)); color: #fff; }
+
+
+/* barrinha com a cor da equipe */
+td:nth-child(2) { position: relative; padding-left: 28px; }
+td:nth-child(2)::before {
+    content: ""; position: absolute; left: 14px; top: 50%;
+    width: 3px; height: 14px; background: var(--cor);
+    transform: translateY(-50%);
+}
+tbody tr:nth-child(1) { --cor: var(--mclaren); }
+tbody tr:nth-child(2) { --cor: var(--ferrari); }
+tbody tr:nth-child(3) { --cor: var(--mercedes); }
+tbody tr:nth-child(4) { --cor: var(--audi); }
+
+
+td:nth-child(5) { color: var(--muted); font-size: 10px; }
+td:nth-child(5) strong { color: #fff; font-size: 9px; letter-spacing: .5px; }
+td:nth-child(6) { font-weight: 900; }
+
+
+/* ===== Ingressos (a section vira 2 colunas) ===== */
+body > section:last-of-type {
+    grid-row: 10; grid-column: c1 / c5;
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-rows: auto auto auto 1fr;
+    column-gap: 40px;
+    align-items: start;
+}
+section > h2 { grid-column: 1; }
+body > section:last-of-type > p { grid-column: 1; font-size: 12px; color: #cfcfd6; margin-bottom: 16px; }
+body > section:last-of-type > p:nth-of-type(2) {
+    background: #2a2508;
+    border: 1px solid #5c4d0a; border-left: 3px solid #f5c400;
+    padding: 12px 14px;
+    color: #f5c400; font-size: 11px;
+}
+section > ul { grid-column: 1; }
+section li {
+    display: flex; justify-content: space-between;
+    padding: 12px 0; border-bottom: 1px solid var(--borda);
+    font-size: 12px;
+}
+section li strong { color: var(--red); font-weight: 900; }
+
+
+form {
+    grid-column: 2; grid-row: 1 / span 4;
+    background: var(--painel);
+    border-top: 3px solid var(--red);
+    padding: 20px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+form > div:nth-child(7), form > div:nth-child(8), form > button { grid-column: 1 / -1; }
+form > button { background: var(--red); border-color: var(--red); padding: 14px; font-size: 11px; }
+form > button:hover { background: #ff1a0d; border-color: #ff1a0d; color: #fff; }
+
+
+
+
+/* ===== Celular ===== */
+@media (max-width: 800px) {
+    .topbar { grid-template-columns: 1fr auto; padding: 0 16px; }
+    .topbar a:not(:last-child) { display: none; }
+    .hero { padding: 32px 20px 90px; }
+    .hero-content { width: 100%; }
+    .hero::before { width: 100%; clip-path: none; opacity: .35; }
+    .hero::after { display: none; }
+    .hero-stats { right: 20px; }
+    body > section:last-of-type { grid-template-columns: 1fr; }
+    form { grid-column: 1; grid-row: auto; margin-top: 24px; }
+    table { font-size: 11px; }
+}
+footer {
+    grid-row: 11;
+    grid-column: full-start / full-end;
+    margin-top: 60px;
+    padding: 22px;
+    border-top: 1px solid var(--borda);
+    text-align: center;
+    font-size: 9px;
+    color: var(--muted);
+}
+
+
+footer span {
+    color: var(--red);
+}
