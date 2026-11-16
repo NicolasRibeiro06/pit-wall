@@ -1,8 +1,8 @@
 <div align="center">
   <h1>🏎️ Pit Wall</h1>
   <p>Um projeto web focado em automobilismo e Fórmula 1, desenvolvido para centralizar informações, estatísticas e acompanhamento de corridas com uma interface moderna e responsiva.</p>
-  
- <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Pit Stop Fórmula 1" width="600" />
+  <img src="https://media.giphy.com/media/l0HlU9jZoIQdlZbkQ/giphy.gif" alt="Carro de Fórmula 1 na pista" width="600" />
+</div>
 
 ---
 
